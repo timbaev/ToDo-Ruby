@@ -8,7 +8,11 @@ db_manager = DbManager.new
 loop do
   puts 'Input command: '
 
-  command = gets.chomp
+  command = String.new
+  
+  for arg in ARGV
+   command = command + arg
+  end
 
   if command[0, 5].include? '--add'
     event_name = command[6, command.length - 1]
